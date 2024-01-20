@@ -23,7 +23,7 @@ namespace DiscosAPP
             {
                 conexion.ConnectionString = "server =.\\SQLEXPRESS; database=DISCOS_DB; integrated security = true;";
                 comando.CommandType =System.Data.CommandType.Text;
-                comando.CommandText = "select D.Titulo,D.FechaLanzamiento as Lanzamiento,D.UrlImagenTapa,D.CantidadCanciones as Canciones from DISCOS D";
+                comando.CommandText = "select D.Titulo,D.FechaLanzamiento as Lanzamiento,D.UrlImagenTapa,D.CantidadCanciones as Canciones,E.Descripcion as Estilo from DISCOS D,ESTILOS E,TIPOSEDICION TE where E.Id=D.IdEstilo";
                 comando.Connection = conexion;
                 conexion.Open();
                 lector=comando.ExecuteReader();
@@ -37,8 +37,10 @@ namespace DiscosAPP
                     aux.Lanzamiento = (DateTime)lector["Lanzamiento"];
                     aux.Canciones = (int)lector["Canciones"];
                     aux.UrlImagen = (string)lector["UrlImagenTapa"];
+                    aux.Genero = new Genero();
+                    aux.Genero.Descripcion = (string)lector["Estilo"];
 
-                    lista.Add(aux);
+;                    lista.Add(aux);
 
                 }
 

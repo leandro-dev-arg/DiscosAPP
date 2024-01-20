@@ -23,6 +23,7 @@ namespace DiscosAPP
             DiscosNegocio negocio = new DiscosNegocio();
             listaDiscos= negocio.listar();
             dgvDiscos.DataSource = listaDiscos;
+            dgvDiscos.Columns["UrlImagen"].Visible =false;
             pcbDiscos.Load(listaDiscos[0].UrlImagen);
         }
 
