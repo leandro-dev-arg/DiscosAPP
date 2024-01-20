@@ -17,5 +17,7 @@ namespace DiscosAPP
         public string UrlImagen { get; set; }
 
         public  Genero Genero { get; set; }
+
+        public FormatoEdicion Formato { get; set; }
     }
 }

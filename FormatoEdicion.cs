@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace DiscosAPP
 {
-    internal class Genero
+    internal class FormatoEdicion
     {
         public int Id { get; set; }
 
-        public string  Descripcion { get; set; }
+        public string Edicion { get; set; }
 
         public override string ToString()
         {
-            return Descripcion;
+            return Edicion;
         }
     }
-    
 }
